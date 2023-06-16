@@ -34,27 +34,24 @@ def start_process(path):
             select = int(input('type:'))
             if select == 1:
                 keyword = input('type name:')
-                print("not implemented yet")
-                # fill this block
+                place = parking_spot_manager.filter_by_name(place, keyword)     #주차장 이름 필터링
             elif select == 2:
-                keyword = input('type city:')
-                print("not implemented yet")
-                # fill this block
+                keyword = input('type city:')           
+                place = parking_spot_manager.filter_by_city(place, keyword)     #도시 이름 필터링
             elif select == 3:
                 keyword = input('type district:')
-                print("not implemented yet")
-                # fill this block
+                place = parking_spot_manager.filter_by_district(place, keyword)     #지역 필터링
             elif select == 4:
                 keyword = input('type ptype:')
-                print("not implemented yet")
-                # fill this block
+                place = parking_spot_manager.filter_by_ptype(place, keyword)        #주차장 유형 필터링
             elif select == 5:
+                #위도 경도 최대 최소 입력
                 min_lat = float(input('type min lat:'))
                 max_lat = float(input('type max lat:'))
                 min_lon = float(input('type min long:'))
                 max_lon = float(input('type max long:'))
-                print("not implemented yet")
-                # fill this block
+                # 위치(위도, 경도) 필터링
+                place = parking_spot_manager.filter_by_location(place, (min_lat, max_lat, min_lon, max_lon))
             else:
                 print("invalid input")
         elif select == 3:

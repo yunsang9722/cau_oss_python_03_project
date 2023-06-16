@@ -43,7 +43,35 @@ def print_spots(spots):
     for i in spots:
         print(i)
 
+def filter_by_name(spots, name):
+    # 포함된 이름 필터링
+    new_list = [i for i in spots if name in i.get('name')]
+    return new_list
 
+def filter_by_city(spots, city):
+    # 도시 이름 필터링
+    new_list = [i for i in spots if city in i.get('city')]
+    return new_list
+
+def filter_by_district(spots, district):
+    # 지역 필터링
+    new_list = [i for i in spots if district in i.get('district')]
+    return new_list
+
+def filter_by_ptype(spots, ptype):
+    # 주차장 유형 필터링
+    new_list = [i for i in spots if ptype in i.get('ptype')]
+    return new_list
+
+def filter_by_location(spots, locations):
+    #최대 최소 위도 경도 설정
+    min_lat = locations[0]
+    max_lat = locations[1]
+    min_lon = locations[2]
+    max_lon = locations[3]
+    # 위치(위도, 경도) 필터링
+    new_list = [i for i in spots if (min_lat < i.get('latitude') < max_lat and min_lon < i.get('longitude') < max_lon)]
+    return new_list
 
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
