@@ -59,10 +59,9 @@ def start_process(path):
             print("---sort by---")
             print(keywords)
             keyword = input('type keyword:')
-            if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
-            else: print("invalid input")
+            if keyword in keywords: #키워드가 옳다면
+                place = parking_spot_manager.sort_by_keyword(place, keyword)   #입력 받은 항목으로 오름차순 정렬
+            else: print("invalid input") #옳지 않으면
         elif select == 4:
             print("Exit")
             break

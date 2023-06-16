@@ -73,6 +73,11 @@ def filter_by_location(spots, locations):
     new_list = [i for i in spots if (min_lat < i.get('latitude') < max_lat and min_lon < i.get('longitude') < max_lon)]
     return new_list
 
+def sort_by_keyword(spots, keyword):
+    #입력 받은 항목으로 오름차순 정렬
+    new_list = sorted(spots, key=lambda x : x.get(keyword))
+    return new_list
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
     print("Testing the module...")
